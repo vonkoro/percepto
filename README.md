@@ -15,8 +15,6 @@
 | Difference Hash (dHash) | 🚧          | Horizontal & vertical variants |
 | Wavelet Hash (wHash)    | 🚧          | Haar wavelet transform         |
 
-\* Compact storage with `bitvec` \* Idiomatic error handling via **anyhow** \* Builder‑style parameter API (resize, colour reduction, etc.) \* Zero unsafe code
-
 ---
 
 ## 🚀 Quick start
@@ -38,11 +36,11 @@ fn main() -> anyhow::Result<()> {
     let params = HashingParameters::for_ahash();
 
     // 2)  generate hashes
-    let kitten_png  = AHash::from_image_path("tests/test_image.png",  params)?;
-    let kitten_jpeg = AHash::from_image_path("tests/test_image_cropped.jpg", params)?;
+    let test_png  = AHash::from_image_path("tests/test_image.png",  params)?;
+    let cropped_jpg = AHash::from_image_path("tests/test_image_cropped.jpg", params)?;
 
     // 3)  compare
-    let d = hamming_distance(kitten_png.value, kitten_jpeg.value)?;
+    let d = hamming_distance(test_png.value, cropped_jpg.value)?;
     println!("Hamming distance: {d}");
     Ok(())
 }
