@@ -17,15 +17,6 @@
 
 ---
 
-## 🚀 Quick start
-
-```bash
-# Clone & build
-$ git clone https://github.com/your‑name/percepto.git
-$ cd percepto
-$ cargo test
-```
-
 ### Example: hashing two files & computing distance
 
 ```rust
